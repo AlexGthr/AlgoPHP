@@ -32,13 +32,14 @@ $capitales = [
     "France" => "Paris",
     "Allemagne" => "Berlin",
     "USA" => "Washington",
-    "Italie" => "Rome"
+    "Italie" => "Rome",
+    "Espagne" => "Madrid"
 ];
 
 function afficherTableHTML($capitales) {
 
     // On trie le tableau par ordre alphabétique
-    ksort($capitales);
+    asort($capitales);
 
     // On crée la base haute du tableau
     $resultat = "<table>
