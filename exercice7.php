@@ -12,22 +12,27 @@ Si la catégorie n’est pas gérée, merci de le préciser.</p>
 
 <?php 
 
-$age = 10;
+// Création de la variable AGE
+$dateDeNaissance = 10;
 
-if ($age >= 6 && $age <= 7) {
-    $cat = "POUSSIN";
+// Teste des conditions puis affichage du resultat
+if ($dateDeNaissance >= 6 && $dateDeNaissance <= 7) {
+    echo "L'enfant qui à $dateDeNaissance ans appartient à la catégorie POUSSIN.";
 }
-else if ($age >= 8 && $age <= 9) {
-    echo "L'enfant qui à $age ans appartient à la catégorie PUPILLE.";
+else if ($dateDeNaissance >= 8 && $dateDeNaissance <= 9) {
+    echo "L'enfant qui à $dateDeNaissance ans appartient à la catégorie PUPILLE.";
 }
-else if ($age >= 10 && $age <= 11) {
-    echo "L'enfant qui à $age ans appartient à la catégorie MINIME.";
+else if ($dateDeNaissance >= 10 && $dateDeNaissance <= 11) {
+    echo "L'enfant qui à $dateDeNaissance ans appartient à la catégorie MINIME.";
 }
-else if ($age >= 12) {
-    echo "L'enfant qui à $age ans appartient à la catégorie CADET.";
+else if ($dateDeNaissance >= 12) {
+    echo "L'enfant qui à $dateDeNaissance ans appartient à la catégorie CADET.";
 }
 else {
-    echo "Il n'y as pas de catégorie avec l'age ($age) de l'enfant.";
+    echo "Il n'y as pas de catégorie avec l'age ($dateDeNaissance) de l'enfant.";
 }
 
 ?>
+
+
+// POSSIBLE D'OPTIMISER EN COMMENCANT LES IF PAR LA VALEUR LA PLUS HAUTE ET DE CREE UNE VARIABLE QUI contient LA PHRASE POUR EVITER DE LA REECRIRE PLUSIEURS FOIS

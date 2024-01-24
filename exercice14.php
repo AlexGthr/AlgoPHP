@@ -6,10 +6,11 @@
 
 <?php 
 
+// Je crée mes variables, avec un objet NEW DATETIME("DATE")
 $dateAnniversaire = new DateTime("17-01-1985");
 $dateDuJour = new DateTime("21-05-2018");
 $interval = $dateAnniversaire->diff($dateDuJour);
 
-
+// J'affiche le resultat avec la variable->format()
 echo "Affichage (si la date courante est le ".$dateDuJour->format("d/m/Y").", et la date de naissance le ".$dateAnniversaire->format("d/m/Y")." :";
 echo "<br> Age de la personne : ".$interval->y . " années, " . $interval->m . " mois et ". $interval->d. " jours.";

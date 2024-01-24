@@ -6,10 +6,10 @@
 
 <?php
 
-$contenuPhrase = "Notre formation DL commence aujourd'hui <br>";
+$contenuPhrase = "Notre formation DL commence aujourd'hui <br>"; // On crée la variable qui contient la phrase
 echo $contenuPhrase;
 
-$contenuPhrase = str_replace("aujourd'hui", "demain", $contenuPhrase);
-echo $contenuPhrase;
+$contenuPhrase = str_replace("aujourd'hui", "demain", $contenuPhrase); // On utilise STR_REPLACE("VALEUR A REMPLACER", "NOUVELLE VALEUR", $VARIABLE)
+echo $contenuPhrase; // Puis on affiche la variable qui auras sa valeur changer
 
 ?>

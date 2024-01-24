@@ -7,14 +7,17 @@ coefficient). Elle devra être affichée avec 2 décimales</p>
 
 <?php 
 
+// Je crée les variables qui contiendront les notes
 $noteEleve = [10, 12, 8, 19, 3, 16, 11, 13, 9];
-$nbnoteEleve = count($noteEleve);
-$moyenne = array_sum($noteEleve)/$nbnoteEleve;
+$nbnoteEleve = count($noteEleve); // COUNT() compte le nombre de valeur dans mon tableau
+$moyenne = array_sum($noteEleve)/$nbnoteEleve; // array_sum() Calcul toute les valeurs array dans mon tableau
 
 echo "Les notes obtenus par l'élève sont : ";
 
+// Je crée la boucle qui affichera toute les notes du tableau
 for($i = 0; $i < $nbnoteEleve; $i++) {
     echo $noteEleve[$i].", ";
 }
 
+// Puis j'affiche le resultat
 echo "<br>Sa moyenne générale est donc de : ".number_format($moyenne, 2);

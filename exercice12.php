@@ -9,14 +9,17 @@ respective (français ➔ « Salut », anglais ➔ « Hello », espagnol ➔ « 
 
 <?php
 
+// Je déclare mon tableau "KEY" -> "VALEUR"
 $tableauPrenomLang = [
     "Mickaël" => "FRA",
     "Virgile" => "ESP",
     "Marie-Claire" => "ENG"
 ];
 
+// Je tri mon tableau par ordre alphabétique
 ksort($tableauPrenomLang);
 
+// Je crée la boucle qui affichera le tableau
 foreach($tableauPrenomLang as $prenom => $lang) {
 switch ($lang) {
     case "FRA":

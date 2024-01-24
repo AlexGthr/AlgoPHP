@@ -7,8 +7,8 @@
 
 <?php
 
-$contenuPhrase = "Notre formation DL commence aujourd'hui";
-$nbcontenuPhrase = strlen($contenuPhrase);
-echo "La phrase « $contenuPhrase » contient $nbcontenuPhrase caractères.";
+$contenuPhrase = "Notre formation DL commence aujourd'hui"; // Création de la variable qui contient la phrase
+$nbcontenuPhrase = strlen($contenuPhrase); // On utilise STRLEN() pour compter le nombre de caractère et on le stock dans la variable $nbcontenuPhrase
+echo "La phrase « $contenuPhrase » contient $nbcontenuPhrase caractères."; // Puis on affiche le resultat
 
 ?>

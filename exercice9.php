@@ -9,15 +9,19 @@ plus de 20 ans, alors celle-ci est imposable (sinon ce n’est pas le cas, « no
 
 <?php 
 
-$age = 28;
+
+// On crée les variables
+$dateDeNaissance = 28;
 $sexe = "H";
-echo "Age : $age<br>";
+echo "Age : $dateDeNaissance<br>";
 echo "Sexe : $sexe<br>";
 
-$condition1 = $sexe == "F" && $age >= 18 && $age <= 35;
-$condition2 = $sexe == "H" && $age >= 20;
+// On crée nos conditions en booléen
+$condition1 = $sexe == "F" && $dateDeNaissance >= 18 && $dateDeNaissance <= 35;
+$condition2 = $sexe == "H" && $dateDeNaissance >= 20;
 
-if ($condition1 ||  $condition2) {
+// On crée le if/else avec nos conditions
+if ($condition1 ||  $condition2) { 
     echo "La personne est imposable.";
 }
 else {

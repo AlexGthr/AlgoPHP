@@ -6,8 +6,8 @@
 
 <?php
 
-$contenuPhrase = "Notre formation DL commence aujourd'hui";
-$nbmotscontenuPhrase = str_word_count($contenuPhrase);
-echo "La phrase « $contenuPhrase » contient $nbmotscontenuPhrase mots.";
+$contenuPhrase = "Notre formation DL commence aujourd'hui"; // Création de la variable
+$nbmotscontenuPhrase = str_word_count($contenuPhrase); // On stock dans une autre variable le nombre de mots grâce à STR_WORD_COUNT()
+echo "La phrase « $contenuPhrase » contient $nbmotscontenuPhrase mots."; // Puis on l'affiche
 
 ?>
