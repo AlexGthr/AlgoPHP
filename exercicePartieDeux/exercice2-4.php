@@ -1,4 +1,4 @@
-<h1>Exercice 1</h1>
+<h1>Exercice 4</h1>
 
 <p>Soit le tableau suivant :
 
@@ -49,18 +49,19 @@ function afficherTableHTML($capitales) {
                         </tr>
                     </thead>
                     <tbody>";
-    echo $resultat;
 
     // On crée ensuite le body du tableau avec la boucle foreach
     foreach($capitales as $pays => $capitale) {
-        $resultat = "<tr><td>".strtoupper($pays)."</td><td>".$capitale."</td></tr>";
-        echo $resultat;
+        $resultat .= "<tr>
+                        <td>".strtoupper($pays)."</td>
+                        <td>".$capitale."</td>
+                        <td><a href='https://fr.wikipedia.org/' target'_blank'>Lien</a></td>
+                     </tr>";
     }
 
     // Puis on écrit la fin du tableau
-    $resultat = "</tbody></table>";
-    echo $resultat;
+    $resultat .= "</tbody></table>";
     return $resultat;
 }
 
-afficherTableHTML($capitales);
+echo afficherTableHTML($capitales);

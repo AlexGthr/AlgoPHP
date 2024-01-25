@@ -48,18 +48,18 @@ function afficherTableHTML($capitales) {
                         </tr>
                     </thead>
                     <tbody>";
-    echo $resultat;
 
     // On crée ensuite le body du tableau avec la boucle foreach
     foreach($capitales as $pays => $capitale) {
-        $resultat = "<tr><td>".strtoupper($pays)."</td><td>".$capitale."</td></tr>";
-        echo $resultat;
+        $resultat .= "<tr>
+                        <td>".strtoupper($pays)."</td>
+                        <td>".$capitale."</td>
+                     </tr>";
     }
 
     // Puis on écrit la fin du tableau
-    $resultat = "</tbody></table>";
-    echo $resultat;
+    $resultat .= "</tbody></table>";
     return $resultat;
 }
 
-afficherTableHTML($capitales);
+echo afficherTableHTML($capitales);
