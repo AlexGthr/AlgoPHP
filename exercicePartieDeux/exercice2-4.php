@@ -55,7 +55,7 @@ function afficherTableHTML($capitales) {
         $resultat .= "<tr>
                         <td>".strtoupper($pays)."</td>
                         <td>".$capitale."</td>
-                        <td><a href='https://fr.wikipedia.org/' target'_blank'>Lien</a></td>
+                        <td><a href='https://fr.wikipedia.org/wiki/$capitale' target'_blank'>Lien</a></td>
                      </tr>";
     }
 
