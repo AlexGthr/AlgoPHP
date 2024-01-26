@@ -11,15 +11,22 @@ de validation (submit).</p>
 <?php
 
 // Je déclare mes variables qui me permettrons de faire mon formulaire
-$informationPersonne = ["nom", "prénom", "e-mail", "ville", "sexe"];
+$informationPersonne = ["nom" => "text", 
+                        "prénom" => "text", 
+                        "e-mail" => "email", 
+                        "ville" => "text"
+                        ];
+
+$nomsRadio = ["Monsieur", "Madame", "Mademoiselle", "Autre"];
 $choixMetier = ["Développeur Logiciel", "Designer web", "Intégrateur", "Chef de projet"];
 
 
 // Je crée ensuite ma function qui va gerer le formulaire
-function formulaire($informationPersonne, $choixMetier) {
+function formulaire($informationPersonne, $nomsRadio, $choixMetier) {
 
     // Je récupère le nombre d'élément de chaque tableau
     $nbinformationPersonne = count($informationPersonne);
+    $nbnomsRadio = count($nomsRadio);
     $nbchoixMetier = count($choixMetier);
 
 
@@ -29,13 +36,21 @@ function formulaire($informationPersonne, $choixMetier) {
                  <form action='#' method='post'> <ul> ";
     
     // Je crée ensuite une première boucle pour crée toutes les input='text'
-    for($i = 0; $i < $nbinformationPersonne; $i++) {
+    foreach($informationPersonne as $key => $valeur) {
 
         $resultat .= "<li>
-                        <label for='$informationPersonne[$i]'>
-                             Votre ".$informationPersonne[$i]."
+                        <label for='$key'>
+                             Votre ".$key."
                         </label>
-                        <input type='text' id='$informationPersonne[$i]' name='$informationPersonne[$i]' />";
+                        <input type='$valeur' id='$key' name='$key' />";
+    }
+
+    $resultat .= "<br><br>";
+
+    for($i = 0; $i < $nbnomsRadio; $i++) {
+
+        $resultat .= "<input type='radio' id='$nomsRadio[$i]' name='genre' value='$nomsRadio[$i]' />
+                        <label for='$nomsRadio[$i]'>". $nomsRadio[$i] . "</label>";
     }
 
     // Comme je sais que la suite sera une liste de choix, je prépare ensuite le reste du HTML
@@ -44,7 +59,7 @@ function formulaire($informationPersonne, $choixMetier) {
                         Choix du metier : 
                     </label>
                     <select name='genre' id='genre-select'>
-                    <option value=''> -- Choisir une option -- </option>";
+                    <option value='' disabled='disabled'> -- Choisir une option -- </option>";
 
     // Puis je crée la deuxieme boucle qui s'occupera d'afficher la liste à choix
     for($i = 0; $i < $nbchoixMetier; $i++) {
@@ -61,4 +76,4 @@ function formulaire($informationPersonne, $choixMetier) {
     return $resultat;
 }
 
-echo formulaire($informationPersonne, $choixMetier);
+echo formulaire($informationPersonne, $nomsRadio, $choixMetier);

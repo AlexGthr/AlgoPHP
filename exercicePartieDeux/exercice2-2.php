@@ -1,4 +1,4 @@
-<h1>Exercice 1</h1>
+<h1>Exercice 2</h1>
 
 <p>Soit le tableau suivant :
 

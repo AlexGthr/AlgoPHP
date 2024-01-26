@@ -20,7 +20,7 @@ function afficherListe($elements) {
                             Votre genre : 
                         </label>
                         <select name='genre' id='genre-select'>
-                        <option value=''> -- Choisir une option -- </option>";
+                        <option value='' disabled='disabled'> -- Choisir une option -- </option>";
     
     // Puis avec une boucle je crée le reste de la liste deroulante en concatenant la
     // variable $formulaire

@@ -10,7 +10,7 @@ Créer une fonction personnalisée permettant d’afficher l’image N fois à l
 // Je crée une variable URL qui contiendra l'url, et une variable nbaffichage qui
 // prendra en compte le nombre d'affichage voulu.
 $url = "http://my.mobirise.com/data/userpic/764.jpg";
-$nbaffichage = 4;
+$nbaffichage = 8;
 
 // Je crée ensuite la fonction pour repeter l'affichage
 function repeterImage($url, $nbaffichage) {
@@ -29,4 +29,4 @@ function repeterImage($url, $nbaffichage) {
         return $resultat;
 }
 
-echo repeterImage($url, 4);
+echo repeterImage($url, $nbaffichage);
