@@ -18,19 +18,20 @@ suivants :</p>
 <?php 
 
 class Voiture {
+
+    // Je déclare les attributs de ma classe Voiture
     public string $marque;
     public string $modele;
     public string $nbPortes;
     public int $vitesseActuel;
-    public bool $demarrer;
+    public bool $demarrer = false;
 
     // Fonction __construct
-    public function __construct(string $marque, string $modele, string $nbPortes, int $vitesseActuel = 0, bool $demarrer = false) {
+    public function __construct(string $marque, string $modele, string $nbPortes, int $vitesseActuel = 0) {
         $this->marque = $marque;
         $this->modele = $modele;
         $this->nbPortes = $nbPortes;
         $this->vitesseActuel = $vitesseActuel;
-        $this->demarrer = $demarrer;
     }
 
 
@@ -89,21 +90,21 @@ class Voiture {
         return $this;
     }
 
-
+    // Fonction __toString pour pouvoir ecrire les attributs de ma classe
     public function __toString() {
         return $this->marque." ".$this->modele." " .$this->nbPortes." ". $this->vitesseActuel." ". $this->demarrer."<br>";
     }
 
 
-    public function demarrerVehicule($demarrer) {
-        if ($this->getDemarrer(false)) {
-            $this->setDemarrer(true);
-            echo "Le véhicule".$this->getMarque." ".$this->getModele." démarre.";
+    // Fonction pour démarrer le véhicule
+    public function demarrerVehicule() {
+        if ($this->demarrer == false) { // Si l'objet->attribut est faux alors :
+            $this->demarrer = true; // Passe l'attribut en true puis echo
+            echo "Le véhicule ".$this->marque." ".$this->modele." démarre.";
         }
         else {
-            echo "Le véhicule".$this->getMarque." ".$this->getModele." démarre.";
+            echo "Le véhicule ".$this->marque." ".$this->modele." est déjà démarrer.";
         }
-        return $demarrer;
     }
 }
 
@@ -112,4 +113,6 @@ $v2 = new Voiture("Citroën", "C4", 3);
 
 echo $v2;
 
-echo demarrerVehicule($v1);
+echo $v1->demarrerVehicule();
+echo $v1->demarrerVehicule();
+echo $v2->demarrerVehicule();
