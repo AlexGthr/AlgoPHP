@@ -8,6 +8,12 @@ de validation (submit).</p>
 
 <h2>Résultat</h2>
 
+<style>
+    li {
+        list-style-type: none;
+    }
+</style>
+
 <?php
 
 // Je déclare mes variables qui me permettrons de faire mon formulaire
@@ -19,61 +25,75 @@ $informationPersonne = ["nom" => "text",
 
 $nomsRadio = ["Monsieur", "Madame", "Mademoiselle", "Autre"];
 $choixMetier = ["Développeur Logiciel", "Designer web", "Intégrateur", "Chef de projet"];
-
-
-// Je crée ensuite ma function qui va gerer le formulaire
-function formulaire($informationPersonne, $nomsRadio, $choixMetier) {
-
-    // Je récupère le nombre d'élément de chaque tableau
-    $nbinformationPersonne = count($informationPersonne);
-    $nbnomsRadio = count($nomsRadio);
-    $nbchoixMetier = count($choixMetier);
-
-
-    // Je prépare ma variable résultat avec du HTML
-    $resultat = "<fieldset>
-                    <legend> Formulaire : </legend>
-                 <form action='#' method='post'> <ul> ";
     
-    // Je crée ensuite une première boucle pour crée toutes les input='text'
+
+// Function qui crée la partie case texte à remplir
+function texteFormulaire ($informationPersonne) {
+
+    $resultat = "<li>";
+  
     foreach($informationPersonne as $key => $valeur) {
 
-        $resultat .= "<li>
-                        <label for='$key'>
+        $resultat .= "<label for='$key'>
                              Votre ".$key."
                         </label>
-                        <input type='$valeur' id='$key' name='$key' />";
+                        <input type='$valeur' id='$key' name='$key' /><br>";
     }
 
-    $resultat .= "<br><br>";
+    return $resultat;
+}  
 
-    for($i = 0; $i < $nbnomsRadio; $i++) {
+// Function qui va crée la liste radio
+function radioFormulaire ($nomsRadio) {
 
-        $resultat .= "<input type='radio' id='$nomsRadio[$i]' name='genre' value='$nomsRadio[$i]' />
-                        <label for='$nomsRadio[$i]'>". $nomsRadio[$i] . "</label>";
+    $resultat = "";
+
+    foreach($nomsRadio as $noms) {
+
+        $resultat .= "<input type='radio' id='$noms' name='genre' value='$noms' />
+                        <label for='$noms'>". $noms . "</label>";
     }
 
-    // Comme je sais que la suite sera une liste de choix, je prépare ensuite le reste du HTML
-    $resultat .= "</ul>
+    return $resultat;
+}
+
+// Function qui va crée la liste de choix
+function listeChoixFormulaire ($choixMetier) {
+
+    $resultat = "</ul>
                     <label for='Choix du genre'>
                         Choix du metier : 
                     </label>
                     <select name='genre' id='genre-select'>
                     <option value='' disabled='disabled'> -- Choisir une option -- </option>";
 
-    // Puis je crée la deuxieme boucle qui s'occupera d'afficher la liste à choix
-    for($i = 0; $i < $nbchoixMetier; $i++) {
+    foreach($choixMetier as $choix) {
 
-    $resultat .= "<option value='$choixMetier[$i]'>".$choixMetier[$i]."</option>";
+    $resultat .= "<option value='$choix'>".$choix."</option>";
     }
 
-    // Je donne à $resultat la fin du code HTML du formulaire
+    $resultat .= "</select>";
+
+    return $resultat;
+}
+
+
+function formulaire($informationPersonne, $nomsRadio, $choixMetier) {
+   
+    $resultat = "<fieldset>
+                     <legend> Formulaire : </legend>
+                <form action='#' method='post'> <ul> ";
+    
+    $resultat .= texteFormulaire($informationPersonne);
+    $resultat .= radioFormulaire($nomsRadio);
+    $resultat .= listeChoixFormulaire($choixMetier);
+
     $resultat .= "</select>
                     </br></br><input type='submit' value='Envoyer le formulaire' />
                   </form>";
 
-    // Et je return le résultat
     return $resultat;
+
 }
 
 echo formulaire($informationPersonne, $nomsRadio, $choixMetier);

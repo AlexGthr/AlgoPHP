@@ -10,9 +10,9 @@ dans le tableau associatif si la case est cochée ou non.
 
 // Je crée mon tableau associatif avec les clé et valeur true/false
 $elements = [
-    "Choix 1" => false,
-    "Choix 2" => true,
-    "Choix 3" => false
+    "Choix 1" => "",
+    "Choix 2" => "checked",
+    "Choix 3" => ""
 ];
 
 // Puis je crée la fonction qui va generer le checkbox (choix à cocher)
@@ -27,19 +27,10 @@ function genererCheckbox($elements) {
     // Je crée ensuite la boucle qui va afficher les valeurs de notre tableau
     foreach($elements as $choix => $valeur) {
 
-        // Pour tester si le choix est checked ou pas, j'utilise un switch en testant la $valeur
-        switch($valeur) {
-           case true: // Si c'est true, alors checked
-               $resultat .= "<input type='checkbox' id='$choix' name='$choix' checked>
-                            <label for='$choix'> $choix </label>";
-               break;
-           
-           case false: // Si c'est faux, alors pas de checked
-            $resultat .= "<input type='checkbox' id='$choix' name='$choix'>
-                         <label for='$choix'> $choix </label>";
-               break;
-           }
-       }
+    
+        $resultat .= "<input type='checkbox' id='$choix' name='$choix' $valeur>
+        <label for='$choix'> $choix </label>";
+    }   
 
        // Je n'oublie pas de fermer la balise </fieldset>
        $resultat .= "</fieldset>";

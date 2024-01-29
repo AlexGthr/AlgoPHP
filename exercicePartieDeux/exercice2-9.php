@@ -24,10 +24,10 @@ function afficherRadio($nomsRadio) {
                     <form method='post'>";
     
     // Puis je crée la boucle FOR qui fera chaque <label> pour chaque entrée du tableau
-    for($i = 0; $i < $nbnomsRadio; $i++) {
+    foreach($nomsRadio as $noms) {
 
-        $listeRadio .= "<input type='radio' id='$nomsRadio[$i]' name='genre' value='$nomsRadio[$i]' />
-                        <label for='$nomsRadio[$i]'>". $nomsRadio[$i] . "</label>";
+        $listeRadio .= "<input type='radio' id='$noms' name='genre' value='$noms' />
+                        <label for='$noms'>". $noms . "</label>";
     }
 
     // Je rajoute la fin du HTML

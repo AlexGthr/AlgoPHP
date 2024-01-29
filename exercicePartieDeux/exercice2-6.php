@@ -24,8 +24,8 @@ function afficherListe($elements) {
     
     // Puis avec une boucle je crée le reste de la liste deroulante en concatenant la
     // variable $formulaire
-    for($i = 0; $i < $nbelements; $i++) {
-    $listeDeroulante .= "<option value='$elements[$i]'>".$elements[$i]."</option>";
+    foreach($elements as $element) {
+        $listeDeroulante .= "<option value='$element'>".$element."</option>";
     }
 
     // Je rajoute la fin de la liste avec les balises fermante

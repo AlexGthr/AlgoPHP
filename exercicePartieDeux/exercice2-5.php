@@ -21,13 +21,14 @@ function afficherInput($nomsInput) {
     $formulaire = "<form action='mon formulaire' method='post'>
                         <ul>";
     
-    // Puis avec une boucle je crée le reste du formulaire en concatenant la
-    // variable $formulaire
-    for($i = 0; $i < $nbnomsInput; $i++) {
-    $formulaire .= "<li>
-                        <label for='$nomsInput[$i]'>".$nomsInput[$i]."</label>
-                        <input type='text' id='$nomsInput[$i]' name='$nomsInput[$i]'/>
+    // Puis avec une boucle je crée le reste du formulaire en concatenant la variable $formulaire
+    foreach($nomsInput as $input) {
+
+        $formulaire .= "<li>
+                        <label for='$input'>".$input."</label>
+                        <input type='text' id='$input' name='$input'/>
                     </li>";
+
     }
 
     // Je rajoute la fin du formulaire avec les balises fermante

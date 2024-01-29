@@ -20,11 +20,11 @@ suivants :</p>
 class Voiture {
 
     // Je déclare les attributs de ma classe Voiture
-    public string $marque; 
-    public string $modele;
-    public string $nbPortes;
-    public int $vitesseActuel;
-    public bool $demarrer = false;
+    private string $marque; 
+    private string $modele;
+    private string $nbPortes;
+    private int $vitesseActuel;
+    private bool $demarrer = false;
     private static $compteur = 0; // Compteur pour la method informationGeneral
 
     // Method __construct
@@ -93,24 +93,24 @@ class Voiture {
 
     // Method __toString pour pouvoir ecrire les attributs de ma classe
     public function __toString() {
-        return $this->marque." ".$this->modele." " .$this->nbPortes." ". $this->vitesseActuel." ". $this->demarrer."<br>";
+        return $this->marque." ".$this->modele;
     }
 
 
     // Method pour démarrer le véhicule
     public function demarrerVehicule() {
-        if ($this->demarrer == false) { // Si l'objet->attribut est faux alors :
+        if (!$this->demarrer) { // Si l'objet->attribut est faux alors :
             $this->demarrer = true; // Passe l'attribut en true puis echo
-            echo "<br>Le véhicule ".$this->marque." ".$this->modele." démarre.";
+            echo "<br>Le véhicule $this démarre.";
         }
         else {
-            echo "<br>Le véhicule ".$this->marque." ".$this->modele." est déjà démarrer.";
+            echo "<br>Le véhicule $this est déjà démarrer.";
         }
     }
 
     // Method pour accelerer le véhicule
     public function accelererVehicule($vitesseAAjouter) {
-        if ($this->demarrer == true) {
+        if ($this->demarrer) {
             $this->vitesseActuel += $vitesseAAjouter;
             echo "<br>Le véhicule ".$this->marque." ".$this->modele." accélère de " .$vitesseAAjouter." km/h.";
         }
@@ -122,11 +122,11 @@ class Voiture {
 
     // Method pour stopper le véhicule
     public function stopperVehicule() {
-        if ($this->demarrer == true &&  $this->vitesseActuel == 0) {
+        if ($this->demarrer &&  $this->vitesseActuel == 0) {
             $this->demarrer = false;
             echo "<br>Le véhicule ".$this->marque." ".$this->modele." est stoppé.";
         }
-        else if($this->demarrer == true &&  $this->vitesseActuel > 0) {
+        else if($this->demarrer &&  $this->vitesseActuel > 0) {
             echo "<br>Le véhicule ".$this->marque." ".$this->modele." à une vitesse trop rapide pour se stopper !";
         }
         else {
@@ -136,10 +136,10 @@ class Voiture {
 
     // Method pour ralentir la vitesse du véhicule
     public function ralentirVehicule($vitesseAReduire) {
-        if ($this->demarrer == true && $this->vitesseActuel < $vitesseAReduire) {
+        if ($this->demarrer && $this->vitesseActuel < $vitesseAReduire) {
             echo "<br>Le véhicule ne peux pas ralentir de ". $vitesseAReduire ." km/h alors qu'il à une vitesse de ". $this->vitesseActuel ." km/h !";
         }
-        else if($this->demarrer == true) {
+        else if($this->demarrer) {
             $this->vitesseActuel -= $vitesseAReduire;
             echo "<br>Le véhicule ".$this->marque." ".$this->modele." ralentit de " .$vitesseAReduire." km/h.";
         }
@@ -162,7 +162,7 @@ class Voiture {
         echo "Nom est modèle du véhicule : ".$this->modele." ".$this->marque."<br>";
         echo "Nombre de portes : ".$this->nbPortes."<br>";
         
-        if($this->demarrer == true) {
+        if($this->demarrer) {
             echo "Le véhicule ".$this->marque." est démarré <br>";
         }
         else {
