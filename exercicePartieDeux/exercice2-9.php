@@ -27,7 +27,7 @@ function afficherRadio($nomsRadio) {
     foreach($nomsRadio as $noms) {
 
         $listeRadio .= "<input type='radio' id='$noms' name='genre' value='$noms' />
-                        <label for='$noms'>". $noms . "</label>";
+                        <label for='$noms'>$noms</label>";
     }
 
     // Je rajoute la fin du HTML

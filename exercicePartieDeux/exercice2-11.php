@@ -15,7 +15,14 @@ formaterDateFr("2018-02-23");</p>
 function formaterDateFr($date) {
     
     $date = new DateTime($date);
-    $formattageDate = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+    $formattageDate = new IntlDateFormatter(
+        'fr_FR', 
+        IntlDateFormatter::NONE, 
+        IntlDateFormatter::NONE,
+        'Europe/Paris',
+        IntlDateFormatter::GREGORIAN,
+        'EEEE dd/MM/yyyy hh:mm:ss'
+    );
 
     return "La date : ". $formattageDate->format($date);
 

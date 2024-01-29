@@ -15,6 +15,10 @@ $nbmarques = count($marques);
 
 echo "Il y a $nbmarques marques de voitures dans le tableau : <br> ";
 
+foreach ($marques as $marque) {
+    echo $marque."<br>";
+}
+
 for($i = 0; $i < $nbmarques; $i++) {
     echo $marques[$i]."<br>";
 }
