@@ -64,15 +64,19 @@ class Titulaire {
         return $this;
     }
 
+
+    // Method pour faire un calcul de l'age si besoin
     public function calculAge() {
         $age = date_diff($this->dateDeNaissance, new DateTime());
         return $age->format("%y ans");
     }
 
+    // Method pour ajouter automatiquement un compte dans un tableau pour le lié au Titulaire
     public function addCompte(Compte $compte) {
         $this->comptes[] = $compte;
     }
 
+    // Method pour faire un affichage des comptes
     public function afficherCompte() {
         $result = "<h1> Compte bancaire de $this : </h1><br><ul>";
 

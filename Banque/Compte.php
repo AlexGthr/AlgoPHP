@@ -20,11 +20,11 @@ class Compte {
     /**
      * Get the value of libelle
      */ 
-    public function getLibelle()
+    public function getLibelle(): string
     {
         return $this->libelle;
     }
-    public function setLibelle($libelle)
+    public function setLibelle(string $libelle)
     {
         $this->libelle = $libelle;
 
@@ -34,11 +34,11 @@ class Compte {
     /**
      * Get the value of solde
      */ 
-    public function getSolde()
+    public function getSolde(): int
     {
         return $this->solde;
     }
-    public function setSolde($solde)
+    public function setSolde(int $solde)
     {
         $this->solde = $solde;
 
@@ -48,11 +48,11 @@ class Compte {
     /**
      * Get the value of devise
      */ 
-    public function getDevise()
+    public function getDevise(): string
     {
         return $this->devise;
     }
-    public function setDevise($devise)
+    public function setDevise(string $devise)
     {
         $this->devise = $devise;
 
@@ -62,22 +62,25 @@ class Compte {
     /**
      * Get the value of titulaire
      */ 
-    public function getTitulaire()
+    public function getTitulaire(): Titulaire
     {
         return $this->titulaire;
     }
-    public function setTitulaire($titulaire)
+    public function setTitulaire(Titulaire $titulaire)
     {
         $this->titulaire = $titulaire;
 
         return $this;
     }
 
+
+    // Method pour créditer un compte.
     public function crediterCompte($soldeAAjouter) {
         $this->solde = $this->solde + $soldeAAjouter;
         return "<br><br>Bonjour ".$this->titulaire." ! Vous avez bien rajouter $soldeAAjouter ".$this->devise." au compte ".$this->libelle.". <br>Solde du compte : ".$this->solde." ".$this->devise; 
     }
 
+    // Method pour debiter un compte
     public function debiterCompte($soldeADebiter) {
         if($this->solde > $soldeADebiter) {
 
@@ -89,6 +92,19 @@ class Compte {
         }
         else {
             return "<br><br>Opérations impossible. Pas assez de fond.";
+        }
+    }
+
+    // Method pour faire un virement d'un compte à un autre
+    public function virementCompte($montantVirement, $compte) {
+        if ($montantVirement < $this->solde && $montantVirement < $compte->solde) {
+            $this->solde = $this->solde + $montantVirement;
+            $compte->solde = $compte->solde - $montantVirement;
+            
+            return "Bonjour ".$this->titulaire." ! Votre virement de $montantVirement depuis le compte « ".$compte->libelle." » vers le compte « ".$this->libelle." » à bien été enrengistrer."; 
+        }
+        else {
+            return "une erreur est survenue";
         }
     }
 

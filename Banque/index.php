@@ -19,3 +19,5 @@ echo $compte2->crediterCompte(500);
 echo $compte1->debiterCompte(100);
 echo $compte1->debiterCompte(3000);
 echo $Titulaire1->afficherCompte();
+echo $compte1->virementCompte(50, $compte2);
+echo $Titulaire1->afficherCompte();
