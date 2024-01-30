@@ -2,11 +2,11 @@
 
 class Compte {
     private string $libelle;
-    private int $solde;
+    private float $solde;
     private string $devise;
     private Titulaire $titulaire;
 
-    public function __construct(string $libelle, int $solde, string $devise, Titulaire $titulaire) {
+    public function __construct(string $libelle, float $solde, string $devise, Titulaire $titulaire) {
 
         $this->libelle = $libelle;
         $this->solde = $solde;
@@ -34,11 +34,11 @@ class Compte {
     /**
      * Get the value of solde
      */ 
-    public function getSolde(): int
+    public function getSolde(): float
     {
         return $this->solde;
     }
-    public function setSolde(int $solde)
+    public function setSolde(float $solde)
     {
         $this->solde = $solde;
 
