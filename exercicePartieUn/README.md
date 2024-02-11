@@ -127,3 +127,8 @@ Instancier 2 personnes et afficher leurs informations : nom, prénom et âge.
 </br>$p2 = new Personne("DUCHEMIN", "Alice", "1985-01-17");
 </p>
 
+<br><br><br>
+<p><strong>Copyright : </strong></p>
+
+![Elan](https://github.com/AlexGthr/Cinema/assets/145430486/f847025a-e4a1-4585-bd1f-1de40d59d0f0)
+
