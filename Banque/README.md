@@ -39,3 +39,8 @@ appartenant à celui(celle)-ci.
         <li>Afficher toutes les informations d'un compte bancaire, notamment le nom / prénom du 
 titulaire du compte.</li>
     </ul>
+
+<br><br><br>
+<p><strong>Copyright : </strong></p>
+
+![Elan](https://github.com/AlexGthr/Cinema/assets/145430486/f847025a-e4a1-4585-bd1f-1de40d59d0f0)
